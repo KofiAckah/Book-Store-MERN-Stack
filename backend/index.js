@@ -12,13 +12,14 @@ const app = express();
 // Middleware for parsing request body
 app.use(express.json());
 // Middleware for handiling cors policy
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    method: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     method: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 
 app.use("/books", booksRoute);
 

@@ -4,6 +4,7 @@ import { Book } from "../models/bookModel.js";
 
 const router = express.Router();
 
+// creating a book *Not sure of the comment may be wrong
 router.post("/", async (req, res) => {
   try {
     if (!req.body.title || !req.body.author || !req.body.publishYear) {
