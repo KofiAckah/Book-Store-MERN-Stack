@@ -2,11 +2,20 @@ import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 
+// DB Schema
+import { Book } from "./models/bookModel.js";
+import booksRoute from "./routes/booksRoute.js";
+
 const app = express();
 
-app.get("/", (request, response) => {
-  console.log(request);
-  return response.status(234).send("Welcome To MERN Stack Tutorial");
+// Middleware for parsing request body
+app.use(express.json());
+
+app.use("/books", booksRoute);
+
+app.get("/", (req, res) => {
+  console.log(req);
+  return res.status(234).send("Welcome To MERN Stack Tutorial");
 });
 
 mongoose
